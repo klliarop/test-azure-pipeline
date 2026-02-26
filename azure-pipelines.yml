@@ -16,3 +16,15 @@ steps:
     podman images
   displayName: Verify Image
 
+- powershell: |
+    Write-Host "test run:"
+    podman run -p 8080:80 demoapp:latest
+  displayName: Run Image
+
+- powershell: |
+    Write-Host "test hello-world:"
+    podman run -p 8088:8088 hello-world
+  displayName: Run Image
+
+
+ 
