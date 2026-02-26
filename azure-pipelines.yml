@@ -9,11 +9,9 @@ variables:
 
 steps:
 
-- task: Docker@2
-  inputs:
-    command: build
-    Dockerfile: '**/Dockerfile'
-    tags: |
-      latest
+- script: |
+    echo "Hello from self-hosted agent"
+    pwd
+    ls -la
 
 - script: echo "Build complete!"
