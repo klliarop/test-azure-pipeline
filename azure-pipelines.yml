@@ -15,3 +15,8 @@ steps:
     Write-Host "Container images:"
     podman images
   displayName: Verify Image
+
+- powershell: |
+    Write-Host "test run:"
+    podman run -p 8080:80 demoapp:latest
+  displayName: Run Image
