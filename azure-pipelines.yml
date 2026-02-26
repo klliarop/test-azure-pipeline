@@ -4,13 +4,14 @@ trigger:
 pool:
   name: local
 
-variables:
-  imageName: demoapp
-
 steps:
 
-- script: |
-    echo "Hello from self-hosted agent"
+- powershell: |
+    Write-Host "Building container..."
+    podman build -t demoapp:latest .
+  displayName: Build Image
 
-
-- script: echo "Build complete!"
+- powershell: |
+    Write-Host "Container images:"
+    podman images
+  displayName: Verify Image
